@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Function to print a horizontal line
+print_horizontal_line() {
+    local width=$1
+    for ((i=0; i<$width; i++)); do
+        printf "-"
+    done
+    printf "\n"
+}
+
+# Function to print a bordered block of text
+print_bordered_text() {
+    local text="$1"
+    local width=${#text}  # Width of the text block
+
+    # Print top border
+    print_horizontal_line $width
+
+    # Print text with side borders
+    echo "| $text |"
+
+    # Print bottom border
+    print_horizontal_line $width
+}
+
+# Example usage
+print_bordered_text "Hello, Bash Border!"
